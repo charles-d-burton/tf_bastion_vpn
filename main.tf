@@ -5,9 +5,9 @@ resource "aws_instance" "bastion" {
   instance_type               = "${var.instance_type}"
   key_name                    = "${var.key_name}"
   vpc_security_group_ids      = ["${aws_security_group.bastion.id}"]
-  subnet                      = "${var.subnet}"
+  subnet_id                   = "${var.subnet}"
   associate_public_ip_address = "true"
-  userdata                    = "${data.template_file.vpn_config.rendered}"
+  user_data                   = "${data.template_file.vpn_config.rendered}"
 
   tags {
     Name = "Terraform Bastion Host"
