@@ -42,6 +42,13 @@ resource "aws_security_group" "bastion" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 1701
+    to_port     = 1701
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   #This is for outbound internet access
   egress {
     from_port   = 0
