@@ -7,6 +7,7 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids      = ["${aws_security_group.bastion.id}"]
   subnet                      = "${var.subnet}"
   associate_public_ip_address = "true"
+  userdata                    = "${data.template_file.vpn_config.rendered}"
 
   tags {
     Name = "Terraform Bastion Host"

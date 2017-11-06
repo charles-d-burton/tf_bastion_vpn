@@ -39,3 +39,15 @@ variable "instance_type" {
 variable "region" {
   description = "The region of AWS, for AMI lookups."
 }
+
+variable "psk" {
+  description = "The pre-shared key for VPN"
+}
+
+variable "username" {
+  description = "The VPN username"
+}
+
+variable "password" {
+  description = "The password for the VPN user"
+}
