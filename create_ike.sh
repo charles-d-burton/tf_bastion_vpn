@@ -2,8 +2,10 @@
 
 INTERNAL_IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
-
-sudo apt-get install strongswan strongswan-plugin-eap-mschapv2 moreutils iptables-persistent
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+sudo apt-get -y update
+sudo apt-get -y install strongswan strongswan-plugin-eap-mschapv2 moreutils iptables-persistent
 mkdir vpn-certs
 cd vpn-certs
 ipsec pki --gen --type rsa --size 4096 --outform pem > server-root-key.pem
