@@ -39,3 +39,8 @@ variable "instance_type" {
 variable "region" {
   description = "The region of AWS, for AMI lookups."
 }
+
+variable "network_block" {
+  description = "The network that should be accessible over this vpn"
+  default     = "10.0.0.0/8"
+}
