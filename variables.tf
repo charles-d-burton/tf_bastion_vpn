@@ -44,3 +44,9 @@ variable "network_block" {
   description = "The network that should be accessible over this vpn"
   default     = "10.0.0.0/8"
 }
+
+variable "gateway_cidr" {
+  type        = "string"
+  description = "The cidr notation of the internal OVPN network to create"
+  default     = "172.24.62.0/24"
+}

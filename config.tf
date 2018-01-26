@@ -4,5 +4,6 @@ data "template_file" "vpn_config" {
 
   vars {
     network_block = "${var.network_block}"
+    gateway_cidr  = "${var.gateway_cidr}"
   }
 }
