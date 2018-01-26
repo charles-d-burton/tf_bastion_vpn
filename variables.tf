@@ -45,8 +45,20 @@ variable "network_block" {
   default     = "10.0.0.0/8"
 }
 
-variable "gateway_cidr" {
+variable "gateway" {
   type        = "string"
-  description = "The cidr notation of the internal OVPN network to create"
-  default     = "172.24.62.0/24"
+  description = "The network to enable on the server"
+  default     = "172.24.62.0"
+}
+
+variable "cidr" {
+  type        = "string"
+  description = "The cidr block for ip allocation"
+  default     = "24"
+}
+
+variable "netmask" {
+  type        = "string"
+  description = "The netmask to match the cidr"
+  default     = "255.255.255.0"
 }
