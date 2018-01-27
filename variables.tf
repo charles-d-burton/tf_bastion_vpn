@@ -48,7 +48,6 @@ variable "network_block" {
 variable "gateway" {
   type        = "string"
   description = "The network to enable on the server"
-  default     = "172.24.62.0"
 }
 
 variable "cidr" {
